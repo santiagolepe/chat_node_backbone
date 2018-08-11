@@ -1,0 +1,36 @@
+{
+  "name": "chat node-backbone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha --timeout=10000 --colors",
+    "watch": "npm-watch",
+    "start": "DEBUG=express:*,socket.io:socket nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.0.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "graphql": "^0.13.2",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.10",
+    "mocha": "^5.2.0",
+    "mocha-watch": "^0.1.0",
+    "mongoose": "^5.2.2",
+    "socket.io": "^2.1.1",
+    "socketio-jwt": "^4.5.0",
+    "supertest": "^3.1.0"
+  },
+  "watch": {
+    "test": "*.js"
+  }
+}
