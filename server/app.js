@@ -23,11 +23,24 @@ mongoose.connection.once('open', _ => {
   if (config.env === 'development') require('./seed')
 })
 
-//add cors for all development request
-if (config.env !== 'production') app.use(cors())
+if (config.env !== 'production') {
+  //add cors for all development request
+  app.use(cors())
+  //public path
+  app.use(express.static('client'))
+  // expose plugins node_modules
+  app.use('/scripts', [
+    express.static(__dirname + '/node_modules/requirejs/'),
+    express.static(__dirname + '/node_modules/jquery/dist/'),
+    express.static(__dirname + '/node_modules/underscore/'),
+    express.static(__dirname + '/node_modules/backbone/'),
+    express.static(__dirname + '/node_modules/requirejs-text/'),
+  ])
 
-//public path
-app.use(express.static('public'))
+  app.use('/css', [
+    express.static(__dirname + '/node_modules/bootstrap/dist/css')
+  ])
+} 
 
 app.use(auth.jwt)
 
