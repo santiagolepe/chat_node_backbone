@@ -27,14 +27,14 @@ function onConnect(socket, io) {
           active: false,
           count: 0,
         }
-        // store user data
-        users.push(data)
         socket.username = user.name
 
         // in the first conection join to default public chat
         socket.join(rooms[0])
         io.to(rooms[0]).emit('join', data)
         socket.emit('all_users', users)
+        // store user data
+        users.push(data)
         console.log(`${users.length} connected users`)
       }
     })

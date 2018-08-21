@@ -20,7 +20,8 @@ require.config({
     backbone: '/scripts/backbone',
     popper: '/popper',
     bootstrap: '/scripts/bootstrap',
-    text: '/scripts/text'
+    text: '/scripts/text',
+    socket: '/scripts/socket.io'
   }
 });
 

@@ -1,5 +1,5 @@
-define(['underscore', 'backbone', 'jquery', 'models/session'], 
-  function (_, Backbone, $, session) {
+define(['underscore', 'backbone', 'jquery', 'models/session', 'events'], 
+  function (_, Backbone, $, session, events) {
   'use strict';
 
   var token
@@ -32,6 +32,7 @@ define(['underscore', 'backbone', 'jquery', 'models/session'],
             this.getUser()
               .then(data => {
                 session.set('user', data.me)
+                events.trigger('logued')
                 resolve()
               })
               .catch(reject)           

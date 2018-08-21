@@ -36,6 +36,7 @@ if (config.env !== 'production') {
     express.static(__dirname + '/node_modules/backbone/'),
     express.static(__dirname + '/node_modules/requirejs-text/'),
     express.static(__dirname + '/node_modules/bootstrap/dist/js/'),
+    express.static(__dirname + '/node_modules/socket.io-client/dist/'),
   ])
 
   app.use('/popper.js', express.static(__dirname + '/node_modules/popper.js/dist/umd/popper.js'))
