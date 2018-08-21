@@ -4,9 +4,11 @@ define([
   'backbone', 
   'views/users', 
   'views/auth/buttons', 
-  'collections/users'
+  'collections/users',
+  'events',
+  'services/socket'
 ], 
-function ($, _, Backbone, UsersView, AuthButtons, userCollection) {
+function ($, _, Backbone, UsersView, AuthButtons, userCollection, events, io) {
   'use strict';
 
   var HomeView = Backbone.View.extend({
@@ -18,9 +20,11 @@ function ($, _, Backbone, UsersView, AuthButtons, userCollection) {
       // initialize login and signin buttons
       new AuthButtons()
 
-      userCollection.add([{_id: 2, name: 'Jaimico'}, {_id: 3, name: 'Chamuco'}])
       var usersView = new UsersView({collection: userCollection})
       usersView.render()
+
+      // on logued connect socket with jwt
+      events.on('logued', _ => io.reset())
 
     }
 
