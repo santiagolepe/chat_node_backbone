@@ -23,7 +23,7 @@
             <small class="text-muted">Users</small>
           </div>
           <div class="box-users">
-            <ul class="list-group"></ul>
+            <ul class="list-group list-users"></ul>
           </div>
         </div>
         <div id="send-box">
@@ -36,8 +36,7 @@
       </div>
       <div class="col-sm-9 pp right-box">
         <header class="header">
-          <button class="btn btn-primary btn-sm" id="login-btn" data-toggle="modal" data-target="#modalLogin">Login</button>
-          <button class="btn btn-info btn-sm" id="signin-btn" data-toggle="modal" data-target="#modalSignin">Signup</button>          
+          <div class="buttons-auth"></div>
         </header>
         <div id="messages-box"></div>
 
@@ -53,20 +52,12 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-hidden="true">
+
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body text-center login">
-          <div id="modal-login-el"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="modalSignin" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body text-center login">
-          <div id="modal-signin-el"></div>
+          <div id="modal-el"></div>
         </div>
       </div>
     </div>
