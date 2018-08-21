@@ -7,17 +7,19 @@ require.config({
       exports: '_'
     },
     backbone: {
-      deps: [
-        'underscore',
-        'jquery'
-      ],
+      deps: ['underscore', 'jquery'],
       exports: 'Backbone'
+    },
+    bootstrap: {
+      deps: ['jquery', 'popper']
     }
   },
   paths: {
     jquery: '/scripts/jquery',
     underscore: '/scripts/underscore',
     backbone: '/scripts/backbone',
+    popper: '/popper',
+    bootstrap: '/scripts/bootstrap',
     text: '/scripts/text'
   }
 });
