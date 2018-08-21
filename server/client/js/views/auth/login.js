@@ -1,5 +1,11 @@
-define(['jquery', 'underscore', 'backbone', 'text!views/auth/login.html', 'bootstrap'], 
-  function ($, _, Backbone, template) {
+define([
+  'jquery', 
+  'underscore', 
+  'backbone', 
+  'text!views/auth/login.html', 
+  'services/auth',
+  'bootstrap'], 
+  function ($, _, Backbone, template, auth) {
   'use strict';
 
   var LoginView = Backbone.View.extend({
@@ -29,6 +35,12 @@ define(['jquery', 'underscore', 'backbone', 'text!views/auth/login.html', 'boots
       e.preventDefault()
       var email = $('#email').val()
       var password = $('#password').val()
+      auth.login(email, password)
+        .then(_ => {
+          this.undelegateEvents()
+          $('#modal').modal('hide')
+        })
+        .catch(alert)
     }
 
   })
