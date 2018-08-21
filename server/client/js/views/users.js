@@ -25,10 +25,16 @@ define([
         this.collection.add(user)
       }) 
 
+      io.sync('user_disconnect', socket => {
+        this.collection.remove(this.collection.where({'socket': socket}))
+      }) 
+
       this.listenTo(this.collection, 'add', this.addUser)
+      this.listenTo(this.collection, 'remove', this.render)
     },
 
     render: function () {
+      this.$el.html('')
       this.collection.each(this.addUser, this)
     },
 
