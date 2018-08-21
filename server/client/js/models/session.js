@@ -5,7 +5,8 @@ define(['backbone'], function (Backbone) {
 
     defaults: {
       logued: false,
-      user: null
+      name: '',
+      _id: ''
     }
 
   })

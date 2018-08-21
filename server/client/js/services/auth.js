@@ -30,8 +30,11 @@ define(['underscore', 'backbone', 'jquery', 'models/session', 'events'],
           } else {
             token = res.data.login.token
             this.getUser()
-              .then(data => {
-                session.set('user', data.me)
+              .then(res => {
+                var me = res.data.me
+                session.set('name', me.name)
+                session.set('_id', me._id)
+                session.set('logued', true)
                 events.trigger('logued')
                 resolve()
               })
@@ -67,6 +70,10 @@ define(['underscore', 'backbone', 'jquery', 'models/session', 'events'],
         .then(resolve)
         .catch(reject)  
       })
+    },
+
+    getToken: function () {
+      return token
     }
 
   }
