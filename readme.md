@@ -1,5 +1,8 @@
 Chat build in nodejs, express, socket.io, mongo, graphql, and backbone
 
+
+![alt text](https://raw.githubusercontent.com/santiagolepe/chat_node_backbone/tree/master/server/client/img/chat.png)
+
 for server development run node on por 3000
   - cd server
   - yarn install
