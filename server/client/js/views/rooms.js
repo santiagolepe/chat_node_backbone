@@ -15,6 +15,11 @@ define([
 
     initialize: function () {
 
+      // sync socket
+      io.sync('new_room', room => {
+        this.collection.add(room)
+      }) 
+
       // add Public room
       this.collection.add({})
 

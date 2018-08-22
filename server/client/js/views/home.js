@@ -11,10 +11,11 @@ define([
   'collections/messages',
   'events',
   'services/socket',
-  'views/sendView'
+  'views/sendView',
+  'views/createRoomView'
 ], 
 function ($, _, Backbone, UsersView, RoomsView, MessagesViews, AuthButtons, users, 
-  rooms, Messages, events, io, SendView) {
+  rooms, Messages, events, io, SendView, CreateRoomView) {
   'use strict';
 
   var HomeView = Backbone.View.extend({
@@ -36,8 +37,9 @@ function ($, _, Backbone, UsersView, RoomsView, MessagesViews, AuthButtons, user
       // initialize messages panel, with default room
       new MessagesViews()
 
-      // initialize send message form
+      // initialize send message and create room form
       new SendView()
+      new CreateRoomView()
 
       // on logued connect socket with jwt
       events.on('logued', _ => io.reset())
