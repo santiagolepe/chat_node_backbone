@@ -3,8 +3,11 @@ define([
   'underscore', 
   'backbone', 
   'text!views/auth/buttons.html', 
-  'views/auth/login'], 
-  function ($, _, Backbone, template, Login) {
+  'views/auth/login',
+  'views/auth/signin',
+  'events'
+  ], 
+  function ($, _, Backbone, template, Login, Signin, events) {
   'use strict';
 
   var LoginView = Backbone.View.extend({
@@ -19,6 +22,7 @@ define([
     },
 
     initialize: function () {
+      events.on('logued', _ => this.$el.html(''))
       this.render()
     },
 
@@ -29,7 +33,11 @@ define([
 
     login: function () {
       new Login().show()
-    }
+    },
+
+    signin: function () {
+      new Signin().show()
+    },
 
   })
 
